@@ -1,2 +1,0 @@
-merge-queue-lab: subrepo to center
-merge-queue-lab: center to subrepo
