@@ -69,7 +69,7 @@ header: # `header` section is configurations for source codes license header.
       - "**/bin"
       - "**/*.publickey"
       - ".licenserc.yaml"
-      - "bluekernel-version"
+      - "blueos-version"
       - "josh-sync.toml"
       - "**/*.lds"
       - "**/lib64"
