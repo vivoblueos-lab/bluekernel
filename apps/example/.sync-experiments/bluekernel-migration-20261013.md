@@ -1,5 +1,5 @@
 # BlueKernel synchronization probe
 
 Repository: apps_example
-Sequence: 1
+Sequence: 2
 Direction: subrepo to monorepo
