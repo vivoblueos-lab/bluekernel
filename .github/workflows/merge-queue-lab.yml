@@ -1,0 +1,32 @@
+name: Merge Queue Lab
+on:
+  pull_request:
+    branches: [main]
+  merge_group:
+    types: [checks_requested]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    name: merge-queue-lab
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Record tested integration
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.event.merge_group.base_ref || github.event.pull_request.base.ref }}
+          BASE_SHA: ${{ github.event.merge_group.base_sha || github.event.pull_request.base.sha }}
+          TEST_SHA: ${{ github.sha }}
+        run: |
+          printf 'event=%s\nbase_ref=%s\nbase_sha=%s\ntest_sha=%s\n' "$EVENT_NAME" "$BASE_REF" "$BASE_SHA" "$TEST_SHA"
+          git show --no-patch --format='commit=%H parents=%P' HEAD
+      - name: Check combined constraints
+        run: python3 tools/merge-queue-lab/check.py
