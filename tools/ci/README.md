@@ -15,16 +15,16 @@ variable to be available to the centralized repository and every component
 repository. Synchronization jobs run only when its value is exactly `true`.
 Setting it to any other value prevents new synchronization jobs from starting,
 but does not cancel jobs that are already running. After re-enabling
-synchronization, manually run `Sync BlueOS` in each component repository if an
+synchronization, manually run `Pull changes from BlueOS` in each component repository if an
 immediate catch-up is required.
 
 The `Notify subrepos` workflow also requires the `APP_CLIENT_ID` repository
 variable and `APP_PRIVATE_KEY` repository secret. The GitHub App must be
 installed on the component repositories with `Contents: write`, which permits
-the workflow to send their `blueos-pull` repository dispatch event.
+the workflow to send their `bluekernel-pull` repository dispatch event.
 
-When this workflow is deployed for the first time, run the existing `Sync
-BlueOS` workflow once in every component repository (or wait for its scheduled
+When this workflow is deployed for the first time, run the existing
+`bluekernel-pull.yml` workflow once in every component repository (or wait for its scheduled
 run) and merge the generated sync pull request. That bootstraps the
 `repository_dispatch` trigger in each component's default branch.
 
