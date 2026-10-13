@@ -30,12 +30,12 @@ For a new machine or missing tools, read `book/src/getting-started.md`. Read `bo
 Run these only when requested because they use the network and update checkout state:
 
 ```bash
-git clone https://github.com/vivoblueos-lab/blueos.git blueos-dev
+git clone https://github.com/vivoblueos-lab/bluekernel.git blueos-dev
 git -C blueos-dev status --short --branch
 git -C blueos-dev pull --ff-only
 ```
 
-Use the SSH URL `git@github.com:vivoblueos-lab/blueos.git` when the user has configured GitHub SSH access.
+Use the SSH URL `git@github.com:vivoblueos-lab/bluekernel.git` when the user has configured GitHub SSH access.
 
 ## Repository Status
 
@@ -58,7 +58,7 @@ git remote -v
 git branch -vv
 ```
 
-The upstream remote is `https://github.com/vivoblueos-lab/blueos.git`, and the default branch is `main`. Top-level project directories no longer have independent `.git` directories.
+The upstream remote is `https://github.com/vivoblueos-lab/bluekernel.git`, and the default branch is `main`. Top-level project directories no longer have independent `.git` directories.
 
 ## Generate and Build
 
