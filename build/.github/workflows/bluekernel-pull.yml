@@ -1,7 +1,7 @@
-name: Pull changes from BlueOS
+name: Pull changes from BlueKernel
 on:
   repository_dispatch:
-    types: [blueos-pull]
+    types: [bluekernel-pull]
   # 定时触发
   schedule:
     - cron: "29 2 * * 1,4"
@@ -12,12 +12,12 @@ permissions:
   pull-requests: write
 # 并发控制
 concurrency:
-  group: blueos-pull
+  group: bluekernel-pull
   cancel-in-progress: false
 jobs:
   pull:
     if: ${{ vars.JOSH_SYNC_ENABLED == 'true' }}
-    uses: vivoblueos-lab/josh-sync/.github/workflows/blueos-pull.yml@721db9e2c627402a535c199344a92c411966dd70
+    uses: vivoblueos-lab/josh-sync/.github/workflows/bluekernel-pull.yml@3e0bfbbfe6825e5e144a4781cfb040a5396eb820
     with:
       # 这里的 JOSH_SYNC_APP_CLIENT_ID 和 JOSH_SYNC_APP_PRIVATE_KEY 是从组织变量和秘密中获取的
       github-app-client-id: ${{ vars.JOSH_SYNC_APP_CLIENT_ID }}
@@ -25,8 +25,8 @@ jobs:
       pr-author: "blueos-lab-josh-sync[bot]"
       josh-sync-repository: vivoblueos-lab/josh-sync
       # 和上文的 workflow 版本保持一致
-      josh-sync-revision: 721db9e2c627402a535c199344a92c411966dd70
-      branch-name: blueos-pull
+      josh-sync-revision: 3e0bfbbfe6825e5e144a4781cfb040a5396eb820
+      branch-name: bluekernel-pull
       # 这里填的是当前子仓库的默认分支, libc的比较特殊
       pr-base-branch: main
     secrets:
