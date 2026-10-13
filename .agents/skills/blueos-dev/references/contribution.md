@@ -18,6 +18,6 @@ git commit
 git push <remote> <branch>
 ```
 
-Prepare one pull request from the feature branch to `main` in `vivoblueos-lab/blueos`. Do not create separate pull requests for top-level areas such as `kernel` or `build`. Read `book/src/prs.md` only for historical context until the centralized contribution documentation is updated.
+Prepare one pull request from the feature branch to `main` in `vivoblueos-lab/bluekernel`. Do not create separate pull requests for top-level areas such as `kernel` or `build`. Read `book/src/prs.md` only for historical context until the centralized contribution documentation is updated.
 
 The handoff must state the branch and remote, changed paths, checks run, outstanding failures, and any pull-request or CI coordination still required.
